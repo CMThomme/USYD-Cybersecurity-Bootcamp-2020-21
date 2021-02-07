@@ -1,0 +1,81 @@
+#   Layer name          Device              Protocols                       Network Concept     Notes
+--+---------------+-------------------+-------------------------------------+-------------------+-------------------------------------------
+7   Application     Web Application     HTTP, DNS, DHCP, FRP, POP2/IMAP NAT  DHCP (Port 67 - server/Port 68 - client)
+                    Firewall                                                
+--+---------------+-------------------+-------------------------------------+-------------------+
+6   Presentation                        ASCII, JPEG, MOV, SSL, TLS
+--+---------------+-------------------+-------------------------------------+-------------------+
+5   Session                             SIP, PPTP
+--+---------------+-------------------+-------------------------------------+-------------------+
+4   Transport       Firewalls           TCP, UDP                             PORTS
+--+---------------+-------------------+-------------------------------------+-------------------+
+3   Network         Router, L3 Switches IPv4, IPv6, ICMP                     IP ADDRESS
+--+---------------+-------------------+-----------------------ARP-----------+-------------------+
+2   Data Link       Switches, Brigdes   Ethernet, PPP,                       MAC ADDRESS
+--+---------------+-------------------+-------------------------------------+-------------------+
+1   Physical        Hubs, Modems,       WiFi (802.11), Bluetooth, USB        MEDIA LINKS
+                    Cables, Repeaters
+--+---------------+-------------------+-------------------------------------+-------------------+
+
+Please Do Not Throw Sausage Pizza Away
+
+Simple network design
+
+192.168.1.0/24      2^8 = 256
+
+192.168.1.1 Gateway
+192.168.1.2 Host-1  [ARP Addresses]
+192.168.1.3 Host-2 - > Printer
+.......
+192.168.1.10 Host-9
+
+192.168.1.200 - IPS or IDS (Traffic analysis)
+
+Open Port: 3 packages in the flow
+Closed: 2 packages in a flow
+Filtered: 1 packages in a flow
+
+Ports and Protocols
+Between the protocols User Datagram Protocol (UDP) and Transmission Control Protocol (TCP), there are 65,535 ports available for communication between devices. Among this impressive number are three classes of ports:
+1. Well-known ports: Range from 0–1,023
+2. Registered ports: Range from 1,024–49,151
+3. Dynamic/Private ports: Range from 49,152–65,535
+Understandably, not all of the ports listed in those three categories are secure. As a result, reference Table below, which enumerates the most commonly used ports and the service/protocol that utilizes the port.
+
+Port	Service/Protocol
+7	Echo/TCP &amp; UDP
+9	Systat/TCP &amp; UDP
+15	Netstat/TCP &amp; UDP
+20	FTP data transfer/TCP
+21	FTP control/TCP
+22	SSH/TCP
+23	Telnet/TCP
+24	Private mail/TCP &amp; UDP
+25	SMT{/TCP
+39	RLP/TCP &amp; UDP
+42	ARPA/TCP &amp; UDP
+42	Windows Internet Name Service/TCP &amp; UCP
+43	WHOIS/TCP
+49	TACACS/TCP &amp; UDP
+53	DNS/TCP &amp; UDP
+69	TFTP/UDP
+80	HTTP/TCP
+88	Kerbos/TCP &amp; UDP
+101	NIC hostname/TCP
+110	POP3/TCP
+115	SFTP/TCP
+119	Network News Transfer Protocol/TCP
+123	NTP/UDP
+143	IMAP/TCP
+152	Background File Transfer Protocol/TCP &amp; UDP
+156	SQL Service/TCP &amp; UDP
+161	SNMP/UDP
+162	SNMPTRAP/TCP &amp; UDP
+175	VMNET/TCP
+179	BGP/TCP
+220	IMAP/TCP &amp; UDP
+264	Border Gateway Multicast Protocol/TCP &amp; UDP
+280	http-mgmt/TCP &amp; UDP
+389	LDAP/TCP &amp; UDP
+443	HTTPS/TCP
+500	Internet Security Assoc and Key Mgmt (ISAKMP)/UDP
